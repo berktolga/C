@@ -1,0 +1,49 @@
+#include<stdio.h>
+int stack1[10]={0};
+int stack2[10]={0};
+int ust1 = 0;
+int ust2 = 0;
+
+ekle(int gelen){
+	do{
+		if(ust1>=10) printf("stack dolu\n");
+		else{	
+			stack1[ust1]=gelen;
+			if(gelen<stack1[ust1-1]){
+				while(gelen<stack1[ust1-1]){
+					stack2[ust2]=stack1[ust1-1];
+					ust1--;
+					ust2++;
+				}
+			}
+			else
+				ust1+=1;
+		}
+	}while(gelen>stack1[ust1-1]);
+	
+	while(ust2!=0){
+		stack1[ust1]=stack2[ust2-1];
+		ust1++;
+		ust2--;
+	}
+	
+}
+goster(){
+	if(ust1==0) printf("stack bos\n");
+	else{
+		int i;
+		printf("Sayilarin Kucukten Buyuge Siralanmis Hali\n");
+		printf("\n");
+		for(i=ust1-1;i>=0;i--){
+			printf("%d -> %d\n",i,stack1[i]);
+		}
+	}
+}
+
+int main(){
+	ekle(5);ekle(9);ekle(12);ekle(34);ekle(6);
+	ekle(99);ekle(2);ekle(8);ekle(18);ekle(20);
+	goster();
+	
+return 0;
+}
