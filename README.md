@@ -13,4 +13,4 @@ Karışık sekilde girilen 10 tane sayıyı küçükten büyüğe doğru iki tan
 
 
 # C
-## Altın Oran Arama Algortiması(Golden Secten Search)
+## Altın Oran Arama Algortiması(Golden Section Search)
